@@ -28,16 +28,20 @@ const addNewGoal = () => {
         return; // Exit the function early
     }
     
-    // Check for duplicates
+    // ⚠️ Hint 1: Check for duplicates
+    // Use 'goalList' to get all existing goals and check if 'goalInput' matches any of them.
     const existingGoals = goalList.querySelectorAll('li'); // Get all existing goals.
     for (const goal of existingGoals) {
+        // ⚠️ Hint 3: Code structure
+        // You might want to wrap the duplicate-checking logic in an 'if' statement.
         if (goal.textContent === goalInput) {
             alert("Goal already exists."); // Display an alert if the goal already exists
             return; // Exit the function early
         }
     }
     
-    // If it's not a duplicate, proceed with adding it as a new goal
+    // ⚠️ Hint 2: Prevent duplicates
+    // If a duplicate is found, display an alert to the user and don't add the goal to the list.
     const newGoal = document.createElement('li'); //This line creates a new html list item(li) element using the creatElement Method to create an empty list item and stores it in the new variable newGoal.
     newGoal.textContent = goalInput; // it assigns the value of goalInput (the user-entered goal) to the text content of the newly created <li> element (newGoal). This effectively displays the goal text inside the list item in the user interface.
     goalList.appendChild(newGoal); // this line appends a newly created list item (newGoal) to the 'goalList' unordered list element. it adds the 'newGoal' list item as a new item in the list of the fitness goals.
@@ -47,7 +51,7 @@ const addNewGoal = () => {
     document.querySelector('#goalInput').value = ""; //this line ensures the input field is empty for the next goal entry after the form is submitted.
 };
 
-
+// ⚠️ Hint 4: Event listener
 // Add event listener to the goal submit button
 document.querySelector('#submitGoal').addEventListener('click', addNewGoal); //this line adds an eventlistener to the button element for the submitGoal event. When the form is submitted the provided function is exicuted.
 
